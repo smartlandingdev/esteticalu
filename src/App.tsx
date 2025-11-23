@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import './App.css';
-import lucianeImg from './assets/luciane.jpg';
+import lucianeImg from './assets/luciane 2.JPG';
 import limpezaProfundaImg from './assets/servicos/limpeza facial profunda.jpg';
 import fotobiomoduladaImg from './assets/servicos/fotobiomodulada.jpg';
 import massagemFuncionalImg from './assets/servicos/massagem funcional.jpg';
@@ -12,6 +12,10 @@ import posImg from './assets/servicos/pos.jpg';
 import resultado1Img from './assets/resultados/resultado (1).JPG';
 import resultado5Img from './assets/resultados/resultado (5).JPG';
 import resultadoImg from './assets/resultados/resultado.JPG';
+import antes1Img from './assets/antes e depois/antes 1.jpg';
+import depois1Img from './assets/antes e depois/depois 1.jpg';
+import antes2Img from './assets/antes e depois/antes 2.PNG';
+import depois2Img from './assets/antes e depois/depois 2.jpg';
 
 function App() {
   const corporalCarouselRef = useRef<HTMLDivElement>(null);
@@ -86,6 +90,8 @@ function App() {
           <a href="#beneficios" className="hero-nav-link">BENEFÍCIOS</a>
           <span className="hero-nav-separator">|</span>
           <a href="#spa-facial" className="hero-nav-link">FACIAL</a>
+          <span className="hero-nav-separator">|</span>
+          <a href="#antes-depois" className="hero-nav-link">ANTES/DEPOIS</a>
           <span className="hero-nav-separator">|</span>
           <a href="#resultados" className="hero-nav-link">RESULTADOS</a>
           <span className="hero-nav-separator">|</span>
@@ -420,6 +426,66 @@ function App() {
         </div>
       </section>
 
+      {/* Antes e Depois */}
+      <section className="section antes-depois" id="antes-depois">
+        <div className="container">
+          <div className="section-header reveal-scale">
+            <div className="section-header-decoration">
+              <svg className="header-decoration-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
+                <path d="M9 21h6"/>
+              </svg>
+              <h2 className="section-title">Antes e Depois</h2>
+              <svg className="header-decoration-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
+                <path d="M9 21h6"/>
+              </svg>
+            </div>
+            <p className="section-subtitle">A transformação é visível e real. Veja os resultados conquistados pelas nossas clientes com dedicação e tratamentos personalizados.</p>
+          </div>
+
+          <div className="antes-depois-grid reveal">
+            {/* Card 1 */}
+            <div className="antes-depois-card">
+              <div className="antes-depois-images">
+                <div className="antes-depois-image-wrapper">
+                  <div className="antes-depois-label antes">ANTES</div>
+                  <img src={antes1Img} alt="Antes 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div className="antes-depois-divider">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+                <div className="antes-depois-image-wrapper">
+                  <div className="antes-depois-label depois">DEPOIS</div>
+                  <img src={depois1Img} alt="Depois 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="antes-depois-card">
+              <div className="antes-depois-images">
+                <div className="antes-depois-image-wrapper">
+                  <div className="antes-depois-label antes">ANTES</div>
+                  <img src={antes2Img} alt="Antes 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div className="antes-depois-divider">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+                <div className="antes-depois-image-wrapper">
+                  <div className="antes-depois-label depois">DEPOIS</div>
+                  <img src={depois2Img} alt="Depois 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Resultados */}
       <section className="section resultados" id="resultados">
         <div className="container">
@@ -472,6 +538,71 @@ function App() {
                 <span className="gallery-label">Resultados Visíveis</span>
               </div>
               <img src={resultadoImg} alt="Antes e Depois - Resultado 11" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tratamento Estético Funcional */}
+      <section className="section tratamento-funcional">
+        <div className="container-narrow">
+          <div className="tratamento-funcional-wrapper reveal-scale">
+            {/* Elementos decorativos */}
+            <div className="funcional-deco-1"></div>
+            <div className="funcional-deco-2"></div>
+            <div className="funcional-deco-3"></div>
+            <div className="funcional-deco-4"></div>
+            <div className="funcional-deco-5"></div>
+            <div className="funcional-deco-6"></div>
+
+            <div className="tratamento-funcional-content">
+              <div className="funcional-header">
+                <div className="funcional-ornament top">
+                  <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="1">
+                    <path d="M0 10 Q 25 0, 50 10 T 100 10" />
+                  </svg>
+                </div>
+                <h2 className="funcional-title">Tratamento Estético Funcional</h2>
+                <div className="funcional-ornament bottom">
+                  <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="1">
+                    <path d="M0 10 Q 25 20, 50 10 T 100 10" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="funcional-text-container">
+                <p className="funcional-text lead">
+                  A massagem funcional do método Esculpe Detox é um tratamento eficaz para disfunções estéticas, como celulite, gordura localizada, flacidez, redução de medidas, trato intestinal, edema e contorno corporal, resultando na melhora da qualidade da pele e a aparência geral do corpo.
+                </p>
+
+                <div className="funcional-divider">
+                  <span className="funcional-divider-dot"></span>
+                  <span className="funcional-divider-line"></span>
+                  <span className="funcional-divider-dot"></span>
+                </div>
+
+                <p className="funcional-text">
+                  Este método de massagem é conhecido por seus benefícios pelas manobras com sentido e com propósito, que atuam de dentro para fora.
+                </p>
+
+                <div className="funcional-highlight">
+                  <div className="funcional-highlight-decoration">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
+                      <path d="M9 21h6"/>
+                    </svg>
+                  </div>
+                  <p className="funcional-highlight-text">
+                    E o melhor: os resultados são visíveis desde a primeira sessão.
+                  </p>
+                  <div className="funcional-highlight-decoration">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
+                      <path d="M9 21h6"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
