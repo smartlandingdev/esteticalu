@@ -7,7 +7,7 @@ import massagemFuncionalImg from "./assets/servicos/massagem funcional.jpg";
 import esculpe21Img from "./assets/servicos/esculpe 21.jpg";
 import drenagemLinfaticaImg from "./assets/servicos/drenagem linfatica.jpg";
 import massagemEsculpeWeek from "./assets/servicos/esculpe week.jpg";
-import spaImg from "./assets/servicos/spa.jpg";
+import spaImg from "./assets/servicos/facial-2.PNG";
 import posImg from "./assets/servicos/pos.jpg";
 import resultado1Img from "./assets/resultados/resultado (1).JPG";
 import resultado5Img from "./assets/resultados/resultado (5).JPG";
