@@ -1,36 +1,42 @@
-import { useEffect, useRef } from 'react';
-import './App.css';
-import lucianeImg from './assets/luciane 2.JPG';
-import limpezaProfundaImg from './assets/servicos/limpeza facial profunda.jpg';
-import fotobiomoduladaImg from './assets/servicos/fotobiomodulada.jpg';
-import massagemFuncionalImg from './assets/servicos/massagem funcional.jpg';
-import esculpe21Img from './assets/servicos/esculpe 21.jpg';
-import drenagemLinfaticaImg from './assets/servicos/drenagem linfatica.jpg';
-import massagemEsculpeWeek from './assets/servicos/esculpe week.jpg';
-import spaImg from './assets/servicos/spa.jpg';
-import posImg from './assets/servicos/pos.jpg';
-import resultado1Img from './assets/resultados/resultado (1).JPG';
-import resultado5Img from './assets/resultados/resultado (5).JPG';
-import resultadoImg from './assets/resultados/resultado.JPG';
-import antes1Img from './assets/antes e depois/antes 1.jpg';
-import depois1Img from './assets/antes e depois/depois 1.jpg';
-import antes2Img from './assets/antes e depois/antes 2.PNG';
-import depois2Img from './assets/antes e depois/depois 2.jpg';
+import { useEffect, useRef } from "react";
+import "./App.css";
+import lucianeImg from "./assets/luciane 2.JPG";
+import limpezaProfundaImg from "./assets/servicos/limpeza facial profunda.jpg";
+import fotobiomoduladaImg from "./assets/servicos/fotobiomodulada.jpg";
+import massagemFuncionalImg from "./assets/servicos/massagem funcional.jpg";
+import esculpe21Img from "./assets/servicos/esculpe 21.jpg";
+import drenagemLinfaticaImg from "./assets/servicos/drenagem linfatica.jpg";
+import massagemEsculpeWeek from "./assets/servicos/esculpe week.jpg";
+import spaImg from "./assets/servicos/spa.jpg";
+import posImg from "./assets/servicos/pos.jpg";
+import resultado1Img from "./assets/resultados/resultado (1).JPG";
+import resultado5Img from "./assets/resultados/resultado (5).JPG";
+import resultadoImg from "./assets/resultados/resultado.JPG";
+import antes1Img from "./assets/antes e depois/antes-1.PNG";
+import depois1Img from "./assets/antes e depois/depois-1.PNG";
+import antes2Img from "./assets/antes e depois/antes-2.PNG";
+import depois2Img from "./assets/antes e depois/depois-2.JPG";
 
 function App() {
   const corporalCarouselRef = useRef<HTMLDivElement>(null);
   const facialCarouselRef = useRef<HTMLDivElement>(null);
 
-  const scrollCarousel = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right') => {
+  const scrollCarousel = (
+    ref: React.RefObject<HTMLDivElement | null>,
+    direction: "left" | "right"
+  ) => {
     if (ref.current) {
-      const firstCard = ref.current.querySelector('.tratamento-card') as HTMLElement;
+      const firstCard = ref.current.querySelector(
+        ".tratamento-card"
+      ) as HTMLElement;
       if (firstCard) {
         const cardWidth = firstCard.offsetWidth;
         // Pega o gap do CSS computed style
         const computedStyle = window.getComputedStyle(ref.current);
         const gap = parseFloat(computedStyle.gap) || 19.2; // 1.2rem = 19.2px
-        const scrollAmount = (cardWidth + gap) * (direction === 'left' ? -1 : 1);
-        ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        const scrollAmount =
+          (cardWidth + gap) * (direction === "left" ? -1 : 1);
+        ref.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     }
   };
@@ -39,27 +45,29 @@ function App() {
     // Smooth reveal animations on scroll
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -80px 0px'
+      rootMargin: "0px 0px -80px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add("visible");
         }
       });
     }, observerOptions);
 
     // Observa todos os elementos com classes de animação
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+    document
+      .querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale")
+      .forEach((el) => observer.observe(el));
 
     // Observa todas as seções para animar elementos decorativos
-    document.querySelectorAll('.section').forEach(el => observer.observe(el));
+    document.querySelectorAll(".section").forEach((el) => observer.observe(el));
 
     // Observer especial para seções específicas
-    const tratamentosSection = document.querySelector('.tratamentos');
-    const spaFacialSection = document.querySelector('.spa-facial');
-    const resultadosSection = document.querySelector('.resultados');
+    const tratamentosSection = document.querySelector(".tratamentos");
+    const spaFacialSection = document.querySelector(".spa-facial");
+    const resultadosSection = document.querySelector(".resultados");
 
     if (tratamentosSection) {
       observer.observe(tratamentosSection);
@@ -72,7 +80,9 @@ function App() {
     }
 
     // Observer para as seções de tratamento individuais
-    document.querySelectorAll('.tratamento-section').forEach(el => observer.observe(el));
+    document
+      .querySelectorAll(".tratamento-section")
+      .forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -83,19 +93,33 @@ function App() {
       <section className="hero" id="hero">
         {/* Menu de navegação no topo */}
         <nav className="hero-nav">
-          <a href="#sobre" className="hero-nav-link">SOBRE</a>
+          <a href="#sobre" className="hero-nav-link">
+            SOBRE
+          </a>
           <span className="hero-nav-separator">|</span>
-          <a href="#tratamentos" className="hero-nav-link">TRATAMENTOS</a>
+          <a href="#tratamentos" className="hero-nav-link">
+            TRATAMENTOS
+          </a>
           <span className="hero-nav-separator">|</span>
-          <a href="#beneficios" className="hero-nav-link">BENEFÍCIOS</a>
+          <a href="#beneficios" className="hero-nav-link">
+            BENEFÍCIOS
+          </a>
           <span className="hero-nav-separator">|</span>
-          <a href="#spa-facial" className="hero-nav-link">FACIAL</a>
+          <a href="#spa-facial" className="hero-nav-link">
+            FACIAL
+          </a>
           <span className="hero-nav-separator">|</span>
-          <a href="#antes-depois" className="hero-nav-link">ANTES/DEPOIS</a>
+          <a href="#antes-depois" className="hero-nav-link">
+            ANTES/DEPOIS
+          </a>
           <span className="hero-nav-separator">|</span>
-          <a href="#resultados" className="hero-nav-link">RESULTADOS</a>
+          <a href="#resultados" className="hero-nav-link">
+            RESULTADOS
+          </a>
           <span className="hero-nav-separator">|</span>
-          <a href="#contato" className="hero-nav-link">CONTATO</a>
+          <a href="#contato" className="hero-nav-link">
+            CONTATO
+          </a>
         </nav>
 
         <div className="hero-bg-image"></div>
@@ -104,13 +128,21 @@ function App() {
           <div className="hero-content-glow"></div>
           <p className="hero-name">Luciane Gonçalves</p>
           <h1 className="hero-title">
-            O toque que transforma.<br />
-            A beleza que renova.
+            O toque que transforma.
+            <br />A beleza que renova.
           </h1>
           <p className="hero-subtitle">
-            Estética funcional e terapias corporais que equilibram corpo, mente e autoestima.
+            Estética funcional e terapias corporais que equilibram corpo, mente
+            e autoestima.
           </p>
-          <a href="https://wa.me/5545999149281" className="btn-primary" target="_blank" rel="noopener noreferrer">Agende sua avaliação</a>
+          <a
+            href="https://wa.me/5545999149281"
+            className="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Agende sua avaliação
+          </a>
         </div>
       </section>
 
@@ -119,33 +151,70 @@ function App() {
         <div className="container">
           <div className="section-grid">
             <div className="section-image reveal-left">
-              <img src={lucianeImg} alt="Luciane Gonçalves - Esteticista" style={{ width: '100%', maxWidth: '450px', borderRadius: '20px', boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)' }} />
+              <img
+                src={lucianeImg}
+                alt="Luciane Gonçalves - Esteticista"
+                style={{
+                  width: "100%",
+                  maxWidth: "450px",
+                  borderRadius: "20px",
+                  boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+                }}
+              />
             </div>
             <div className="section-content reveal-right">
-              <h2 className="section-title">Cuidar é minha forma de transformar.</h2>
+              <h2 className="section-title">
+                Cuidar é minha forma de transformar.
+              </h2>
               <div className="section-text">
-                <p>Sou <strong>Luciane Gonçalves</strong>, especialista em Método Esculpe Detox e apaixonada por estética funcional — uma abordagem que busca o equilíbrio natural do corpo.</p>
+                <p>
+                  Sou <strong>Luciane Gonçalves</strong>, especialista em Método
+                  Esculpe Detox e apaixonada por estética funcional — uma
+                  abordagem que busca o equilíbrio natural do corpo.
+                </p>
 
                 <div className="highlight-box">
                   <div className="highlight-item">
-                    <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <polyline points="20 6 9 17 4 12"/>
+                    <svg
+                      className="highlight-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Sem aparelhos.</span>
                   </div>
                   <div className="highlight-item">
-                    <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <polyline points="20 6 9 17 4 12"/>
+                    <svg
+                      className="highlight-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Sem cremes.</span>
                   </div>
                   <div className="highlight-item">
-                    <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <polyline points="20 6 9 17 4 12"/>
+                    <svg
+                      className="highlight-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Sem dor.</span>
                   </div>
-                  <p className="highlight-final"><strong>Apenas o toque certo — com resultados reais.</strong></p>
+                  <p className="highlight-final">
+                    <strong>
+                      Apenas o toque certo — com resultados reais.
+                    </strong>
+                  </p>
                 </div>
               </div>
             </div>
@@ -157,90 +226,121 @@ function App() {
       <section className="section tratamentos" id="tratamentos">
         <div className="container">
           <div className="section-header reveal">
-            <h2 className="section-title">Tratamentos que cuidam, equilibram e transformam.</h2>
-            <p className="section-subtitle">Protocolos exclusivos que unem estética funcional, bem-estar e resultados naturais.</p>
+            <h2 className="section-title">
+              Tratamentos que cuidam, equilibram e transformam.
+            </h2>
+            <p className="section-subtitle">
+              Protocolos exclusivos que unem estética funcional, bem-estar e
+              resultados naturais.
+            </p>
           </div>
 
           {/* Tratamentos Corporais */}
           <div className="tratamento-section reveal">
             <div className="tratamento-title-wrapper">
-              <svg className="tratamento-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
+              <svg
+                className="tratamento-title-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
               </svg>
-              <h3 className="tratamento-section-title">Tratamentos Corporais</h3>
+              <h3 className="tratamento-section-title">
+                Tratamentos Corporais
+              </h3>
             </div>
 
             <div className="tratamento-carousel">
               <button
                 className="carousel-nav-button prev"
-                onClick={() => scrollCarousel(corporalCarouselRef, 'left')}
+                onClick={() => scrollCarousel(corporalCarouselRef, "left")}
                 aria-label="Tratamento anterior"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polyline points="15 18 9 12 15 6"/>
+                  <polyline points="15 18 9 12 15 6" />
                 </svg>
               </button>
 
-              <div className="tratamento-cards-wrapper tratamento-cards-grid" ref={corporalCarouselRef}>
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={massagemFuncionalImg} alt="Massagem Funcional Esculpe Detox" />
+              <div
+                className="tratamento-cards-wrapper tratamento-cards-grid"
+                ref={corporalCarouselRef}
+              >
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img
+                      src={massagemFuncionalImg}
+                      alt="Massagem Funcional Esculpe Detox"
+                    />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Massagem Funcional Esculpe Detox</h4>
+                    <p>Resultado desde a primeira sessão.</p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Massagem Funcional Esculpe Detox</h4>
-                  <p>Resultado desde a primeira sessão.</p>
-                </div>
-              </div>
 
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={massagemEsculpeWeek} alt="Esculpe Week" />
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img src={massagemEsculpeWeek} alt="Esculpe Week" />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Esculpe Week - A Massagem do Verão</h4>
+                    <p>Programa intensivo para desintoxicar e redefinir.</p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Esculpe Week - A Massagem do Verão</h4>
-                  <p>Programa intensivo para desintoxicar e redefinir.</p>
-                </div>
-              </div>
 
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={esculpe21Img} alt="Esculpe 21" style={{ objectPosition: 'center bottom' }} />
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img
+                      src={esculpe21Img}
+                      alt="Esculpe 21"
+                      style={{ objectPosition: "center bottom" }}
+                    />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Esculpe 21</h4>
+                    <p>Ciclo de 21 dias com resultados intensos e visíveis.</p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Esculpe 21</h4>
-                  <p>Ciclo de 21 dias com resultados intensos e visíveis.</p>
-                </div>
-              </div>
 
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={posImg} alt="Esculpe Detox Pós-Operatório" />
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img src={posImg} alt="Esculpe Detox Pós-Operatório" />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Esculpe Detox Pós-Operatório</h4>
+                    <p>
+                      Suporte na recuperação e redução de edemas após cirurgias.
+                    </p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Esculpe Detox Pós-Operatório</h4>
-                  <p>Suporte na recuperação e redução de edemas após cirurgias.</p>
-                </div>
-              </div>
 
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={drenagemLinfaticaImg} alt="Drenagem Linfática" style={{ objectPosition: 'center bottom' }} />
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img
+                      src={drenagemLinfaticaImg}
+                      alt="Drenagem Linfática"
+                      style={{ objectPosition: "center bottom" }}
+                    />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Drenagem Linfática</h4>
+                    <p>
+                      Técnica suave que reduz inchaços e ativa a circulação.
+                    </p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Drenagem Linfática</h4>
-                  <p>Técnica suave que reduz inchaços e ativa a circulação.</p>
-                </div>
-              </div>
               </div>
 
               <button
                 className="carousel-nav-button next"
-                onClick={() => scrollCarousel(corporalCarouselRef, 'right')}
+                onClick={() => scrollCarousel(corporalCarouselRef, "right")}
                 aria-label="Próximo tratamento"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polyline points="9 18 15 12 9 6"/>
+                  <polyline points="9 18 15 12 9 6" />
                 </svg>
               </button>
             </div>
@@ -249,11 +349,17 @@ function App() {
           {/* Tratamentos Faciais */}
           <div className="tratamento-section reveal">
             <div className="tratamento-title-wrapper">
-              <svg className="tratamento-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                <line x1="9" y1="9" x2="9.01" y2="9"/>
-                <line x1="15" y1="9" x2="15.01" y2="9"/>
+              <svg
+                className="tratamento-title-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                <line x1="9" y1="9" x2="9.01" y2="9" />
+                <line x1="15" y1="9" x2="15.01" y2="9" />
               </svg>
               <h3 className="tratamento-section-title">Tratamentos Faciais</h3>
             </div>
@@ -261,53 +367,67 @@ function App() {
             <div className="tratamento-carousel">
               <button
                 className="carousel-nav-button prev"
-                onClick={() => scrollCarousel(facialCarouselRef, 'left')}
+                onClick={() => scrollCarousel(facialCarouselRef, "left")}
                 aria-label="Tratamento anterior"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polyline points="15 18 9 12 15 6"/>
+                  <polyline points="15 18 9 12 15 6" />
                 </svg>
               </button>
 
-              <div className="tratamento-cards-wrapper tratamento-cards-grid" ref={facialCarouselRef}>
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={limpezaProfundaImg} alt="Limpeza de Pele Profunda" />
+              <div
+                className="tratamento-cards-wrapper tratamento-cards-grid"
+                ref={facialCarouselRef}
+              >
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img
+                      src={limpezaProfundaImg}
+                      alt="Limpeza de Pele Profunda"
+                    />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Limpeza de Pele Profunda</h4>
+                    <p>Remoção de impurezas e renovação celular completa.</p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Limpeza de Pele Profunda</h4>
-                  <p>Remoção de impurezas e renovação celular completa.</p>
-                </div>
-              </div>
 
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={fotobiomoduladaImg} alt="Limpeza de Pele Fotobiomodulada" style={{ objectPosition: 'center bottom' }} />
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img
+                      src={fotobiomoduladaImg}
+                      alt="Limpeza de Pele Fotobiomodulada"
+                      style={{ objectPosition: "center bottom" }}
+                    />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Limpeza de Pele Fotobiomodulada</h4>
+                    <p>
+                      Tecnologia de luz para potencializar a renovação celular.
+                    </p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Limpeza de Pele Fotobiomodulada</h4>
-                  <p>Tecnologia de luz para potencializar a renovação celular.</p>
-                </div>
-              </div>
 
-              <div className="tratamento-card">
-                <div className="tratamento-card-image">
-                  <img src={spaImg} alt="Massagem Spa Facial" />
+                <div className="tratamento-card">
+                  <div className="tratamento-card-image">
+                    <img src={spaImg} alt="Massagem Spa Facial" />
+                  </div>
+                  <div className="tratamento-card-content">
+                    <h4>Massagem Spa Facial e Rejuvenescimento</h4>
+                    <p>
+                      Relaxamento, rejuvenescimento e estímulo do nervo vago.
+                    </p>
+                  </div>
                 </div>
-                <div className="tratamento-card-content">
-                  <h4>Massagem Spa Facial e Rejuvenescimento</h4>
-                  <p>Relaxamento, rejuvenescimento e estímulo do nervo vago.</p>
-                </div>
-              </div>
               </div>
 
               <button
                 className="carousel-nav-button next"
-                onClick={() => scrollCarousel(facialCarouselRef, 'right')}
+                onClick={() => scrollCarousel(facialCarouselRef, "right")}
                 aria-label="Próximo tratamento"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polyline points="9 18 15 12 9 6"/>
+                  <polyline points="9 18 15 12 9 6" />
                 </svg>
               </button>
             </div>
@@ -320,56 +440,105 @@ function App() {
         <div className="container">
           <div className="section-grid">
             <div className="section-content reveal-left">
-              <h2 className="section-title">Resultados que vão além da estética.</h2>
-              <p className="intro-text">Cada toque ativa o corpo de dentro pra fora — promovendo equilíbrio, leveza e bem-estar visível desde a primeira sessão.</p>
+              <h2 className="section-title">
+                Resultados que vão além da estética.
+              </h2>
+              <p className="intro-text">
+                Cada toque ativa o corpo de dentro pra fora — promovendo
+                equilíbrio, leveza e bem-estar visível desde a primeira sessão.
+              </p>
 
               <ul className="beneficios-list">
                 <li>
-                  <svg className="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                    <path d="M9 21h6"/>
+                  <svg
+                    className="beneficio-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                    <path d="M9 21h6" />
                   </svg>
                   <span>Redução de medidas e celulite</span>
                 </li>
                 <li>
-                  <svg className="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                    <path d="M9 21h6"/>
+                  <svg
+                    className="beneficio-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                    <path d="M9 21h6" />
                   </svg>
                   <span>Melhora da circulação e do trato intestinal</span>
                 </li>
                 <li>
-                  <svg className="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                    <path d="M9 21h6"/>
+                  <svg
+                    className="beneficio-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                    <path d="M9 21h6" />
                   </svg>
                   <span>Aumento da firmeza e elasticidade da pele</span>
                 </li>
                 <li>
-                  <svg className="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                    <path d="M9 21h6"/>
+                  <svg
+                    className="beneficio-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                    <path d="M9 21h6" />
                   </svg>
                   <span>Alívio do inchaço e sensação de leveza</span>
                 </li>
                 <li>
-                  <svg className="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                    <path d="M9 21h6"/>
+                  <svg
+                    className="beneficio-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                    <path d="M9 21h6" />
                   </svg>
                   <span>Relaxamento físico e mental</span>
                 </li>
                 <li>
-                  <svg className="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                    <path d="M9 21h6"/>
+                  <svg
+                    className="beneficio-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                    <path d="M9 21h6" />
                   </svg>
                   <span>Bem-estar e autoestima renovada</span>
                 </li>
               </ul>
             </div>
             <div className="section-image reveal-right">
-              <img src={massagemFuncionalImg} alt="Benefícios dos tratamentos" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)' }} />
+              <img
+                src={massagemFuncionalImg}
+                alt="Benefícios dos tratamentos"
+                style={{
+                  width: "100%",
+                  borderRadius: "20px",
+                  boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -396,27 +565,55 @@ function App() {
             <div className="spa-extra-deco-14"></div>
 
             <div className="spa-facial-header">
-              <h2 className="section-title">Massagem Spa Facial e Rejuvenescimento</h2>
-              <p className="intro-text">Rejuvenescimento facial com estímulo do nervo vago para relaxamento e bem-estar profundo.</p>
+              <h2 className="section-title">
+                Massagem Spa Facial e Rejuvenescimento
+              </h2>
+              <p className="intro-text">
+                Rejuvenescimento facial com estímulo do nervo vago para
+                relaxamento e bem-estar profundo.
+              </p>
             </div>
 
             <div className="spa-facial-content">
               <div className="spa-facial-image">
-                <img src={spaImg} alt="Massagem Spa Facial" style={{ width: '100%', maxWidth: '500px', margin: '0 auto', display: 'block', borderRadius: '20px', boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)' }} />
+                <img
+                  src={spaImg}
+                  alt="Massagem Spa Facial"
+                  style={{
+                    width: "100%",
+                    maxWidth: "500px",
+                    margin: "0 auto",
+                    display: "block",
+                    borderRadius: "20px",
+                    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+                  }}
+                />
               </div>
 
               <div className="spa-facial-benefits">
                 <div className="spa-benefit-item reveal">
-                  <svg className="spa-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 6v6l4 2"/>
+                  <svg
+                    className="spa-benefit-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
                   </svg>
                   <span>Rejuvenescimento natural e relaxamento profundo</span>
                 </div>
                 <div className="spa-benefit-item reveal">
-                  <svg className="spa-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  <svg
+                    className="spa-benefit-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
                   <span>Estímulo do nervo vago para bem-estar completo</span>
                 </div>
@@ -431,17 +628,32 @@ function App() {
         <div className="container">
           <div className="section-header reveal-scale">
             <div className="section-header-decoration">
-              <svg className="header-decoration-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                <path d="M9 21h6"/>
+              <svg
+                className="header-decoration-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                <path d="M9 21h6" />
               </svg>
               <h2 className="section-title">Antes e Depois</h2>
-              <svg className="header-decoration-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                <path d="M9 21h6"/>
+              <svg
+                className="header-decoration-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                <path d="M9 21h6" />
               </svg>
             </div>
-            <p className="section-subtitle">A transformação é visível e real. Veja os resultados conquistados pelas nossas clientes com dedicação e tratamentos personalizados.</p>
+            <p className="section-subtitle">
+              A transformação é visível e real. Veja os resultados conquistados
+              pelas nossas clientes com dedicação e tratamentos personalizados.
+            </p>
           </div>
 
           <div className="antes-depois-grid reveal">
@@ -450,16 +662,37 @@ function App() {
               <div className="antes-depois-images">
                 <div className="antes-depois-image-wrapper">
                   <div className="antes-depois-label antes">ANTES</div>
-                  <img src={antes1Img} alt="Antes 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img
+                    src={antes1Img}
+                    alt="Antes 1"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
                 </div>
                 <div className="antes-depois-divider">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="9 18 15 12 9 6"/>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </div>
                 <div className="antes-depois-image-wrapper">
                   <div className="antes-depois-label depois">DEPOIS</div>
-                  <img src={depois1Img} alt="Depois 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img
+                    src={depois1Img}
+                    alt="Depois 1"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -469,16 +702,37 @@ function App() {
               <div className="antes-depois-images">
                 <div className="antes-depois-image-wrapper">
                   <div className="antes-depois-label antes">ANTES</div>
-                  <img src={antes2Img} alt="Antes 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img
+                    src={antes2Img}
+                    alt="Antes 2"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
                 </div>
                 <div className="antes-depois-divider">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="9 18 15 12 9 6"/>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </div>
                 <div className="antes-depois-image-wrapper">
                   <div className="antes-depois-label depois">DEPOIS</div>
-                  <img src={depois2Img} alt="Depois 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img
+                    src={depois2Img}
+                    alt="Depois 2"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -505,17 +759,33 @@ function App() {
 
           <div className="section-header reveal-scale">
             <div className="section-header-decoration">
-              <svg className="header-decoration-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                <path d="M9 21h6"/>
+              <svg
+                className="header-decoration-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                <path d="M9 21h6" />
               </svg>
               <h2 className="section-title">Resultados</h2>
-              <svg className="header-decoration-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                <path d="M9 21h6"/>
+              <svg
+                className="header-decoration-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                <path d="M9 21h6" />
               </svg>
             </div>
-            <p className="section-subtitle">Cada resultado é único, mas o sentimento é o mesmo: leveza, confiança e autoestima renovada. Veja como o Método Esculpe Detox e a estética funcional transformam o corpo e o bem-estar.</p>
+            <p className="section-subtitle">
+              Cada resultado é único, mas o sentimento é o mesmo: leveza,
+              confiança e autoestima renovada. Veja como o Método Esculpe Detox
+              e a estética funcional transformam o corpo e o bem-estar.
+            </p>
           </div>
 
           <div className="gallery reveal">
@@ -523,21 +793,48 @@ function App() {
               <div className="gallery-item-overlay">
                 <span className="gallery-label">Transformação Real</span>
               </div>
-              <img src={resultado1Img} alt="Antes e Depois - Resultado 1" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
+              <img
+                src={resultado1Img}
+                alt="Antes e Depois - Resultado 1"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "15px",
+                }}
+              />
             </div>
 
             <div className="gallery-item">
               <div className="gallery-item-overlay">
                 <span className="gallery-label">Resultados Visíveis</span>
               </div>
-              <img src={resultado5Img} alt="Antes e Depois - Resultado 5" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
+              <img
+                src={resultado5Img}
+                alt="Antes e Depois - Resultado 5"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "15px",
+                }}
+              />
             </div>
 
             <div className="gallery-item">
               <div className="gallery-item-overlay">
                 <span className="gallery-label">Resultados Visíveis</span>
               </div>
-              <img src={resultadoImg} alt="Antes e Depois - Resultado 11" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
+              <img
+                src={resultadoImg}
+                alt="Antes e Depois - Resultado 11"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "15px",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -558,13 +855,25 @@ function App() {
             <div className="tratamento-funcional-content">
               <div className="funcional-header">
                 <div className="funcional-ornament top">
-                  <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="1">
+                  <svg
+                    viewBox="0 0 100 20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  >
                     <path d="M0 10 Q 25 0, 50 10 T 100 10" />
                   </svg>
                 </div>
-                <h2 className="funcional-title">Tratamento Estético Funcional</h2>
+                <h2 className="funcional-title">
+                  Tratamento Estético Funcional
+                </h2>
                 <div className="funcional-ornament bottom">
-                  <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="1">
+                  <svg
+                    viewBox="0 0 100 20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  >
                     <path d="M0 10 Q 25 20, 50 10 T 100 10" />
                   </svg>
                 </div>
@@ -572,7 +881,11 @@ function App() {
 
               <div className="funcional-text-container">
                 <p className="funcional-text lead">
-                  A massagem funcional do método Esculpe Detox é um tratamento eficaz para disfunções estéticas, como celulite, gordura localizada, flacidez, redução de medidas, trato intestinal, edema e contorno corporal, resultando na melhora da qualidade da pele e a aparência geral do corpo.
+                  A massagem funcional do método Esculpe Detox é um tratamento
+                  eficaz para disfunções estéticas, como celulite, gordura
+                  localizada, flacidez, redução de medidas, trato intestinal,
+                  edema e contorno corporal, resultando na melhora da qualidade
+                  da pele e a aparência geral do corpo.
                 </p>
 
                 <div className="funcional-divider">
@@ -582,23 +895,36 @@ function App() {
                 </div>
 
                 <p className="funcional-text">
-                  Este método de massagem é conhecido por seus benefícios pelas manobras com sentido e com propósito, que atuam de dentro para fora.
+                  Este método de massagem é conhecido por seus benefícios pelas
+                  manobras com sentido e com propósito, que atuam de dentro para
+                  fora.
                 </p>
 
                 <div className="funcional-highlight">
                   <div className="funcional-highlight-decoration">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                      <path d="M9 21h6"/>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                      <path d="M9 21h6" />
                     </svg>
                   </div>
                   <p className="funcional-highlight-text">
-                    E o melhor: os resultados são visíveis desde a primeira sessão.
+                    E o melhor: os resultados são visíveis desde a primeira
+                    sessão.
                   </p>
                   <div className="funcional-highlight-decoration">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/>
-                      <path d="M9 21h6"/>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                      <path d="M9 21h6" />
                     </svg>
                   </div>
                 </div>
@@ -612,10 +938,29 @@ function App() {
       <section className="section cta" id="contato">
         <div className="container-narrow">
           <div className="content-center reveal-scale">
-            <h2 className="section-title">Sua transformação começa no autocuidado.</h2>
-            <p className="intro-text">Agende sua sessão e viva a experiência de um toque que vai muito além da estética. Porque quando você se cuida, tudo à sua volta se transforma.</p>
-            <div style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2.5rem' }}>
-              <a href="https://wa.me/5545999149281" className="btn-primary large" target="_blank" rel="noopener noreferrer">
+            <h2 className="section-title">
+              Sua transformação começa no autocuidado.
+            </h2>
+            <p className="intro-text">
+              Agende sua sessão e viva a experiência de um toque que vai muito
+              além da estética. Porque quando você se cuida, tudo à sua volta se
+              transforma.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "1.2rem",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                marginTop: "2.5rem",
+              }}
+            >
+              <a
+                href="https://wa.me/5545999149281"
+                className="btn-primary large"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Agendar atendimento
               </a>
               <a
@@ -624,27 +969,36 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  background: 'linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%)',
-                  border: 'none',
-                  boxShadow: '0 8px 25px rgba(131, 58, 180, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.6rem',
-                  transition: 'all 0.3s ease'
+                  background:
+                    "linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%)",
+                  border: "none",
+                  boxShadow: "0 8px 25px rgba(131, 58, 180, 0.3)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.6rem",
+                  transition: "all 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 12px 35px rgba(131, 58, 180, 0.4)';
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 12px 35px rgba(131, 58, 180, 0.4)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(131, 58, 180, 0.3)';
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 25px rgba(131, 58, 180, 0.3)";
                 }}
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: '22px', height: '22px' }}>
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  style={{ width: "22px", height: "22px" }}
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
                 Conheça nosso perfil
               </a>
@@ -666,26 +1020,60 @@ function App() {
               <div className="footer-col">
                 <h4 className="footer-heading">Contato</h4>
                 <div className="footer-links">
-                  <a href="https://wa.me/5545999149281" target="_blank" rel="noopener noreferrer" className="footer-link">
-                    <svg className="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  <a
+                    href="https://wa.me/5545999149281"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link"
+                  >
+                    <svg
+                      className="footer-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                     </svg>
                     <span>(45) 99914-9281</span>
                   </a>
-                  <a href="https://www.instagram.com/esteticalugoncalves" target="_blank" rel="noopener noreferrer" className="footer-link">
-                    <svg className="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  <a
+                    href="https://www.instagram.com/esteticalugoncalves"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link"
+                  >
+                    <svg
+                      className="footer-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
                     <span>@esteticalugoncalves</span>
                   </a>
                   <div className="footer-link">
-                    <svg className="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
+                    <svg
+                      className="footer-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
                     </svg>
-                    <span>Rua Nereu Ramos, 1889 - Centro - Sala 06<br/>Edifício Comercial Bernal II<br/>Cascavel - PR</span>
+                    <span>
+                      Rua Nereu Ramos, 1889 - Centro - Sala 06
+                      <br />
+                      Edifício Comercial Bernal II
+                      <br />
+                      Cascavel - PR
+                    </span>
                   </div>
                 </div>
               </div>
@@ -695,14 +1083,25 @@ function App() {
                 <div className="footer-links">
                   <p className="footer-text">Segunda a Sábado</p>
                   <p className="footer-text">09:00 - 18:00</p>
-                  <p className="footer-text-small">Atendimento com hora marcada</p>
+                  <p className="footer-text-small">
+                    Atendimento com hora marcada
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="footer-bottom">
               <div className="footer-divider"></div>
-              <p className="footer-credit">Desenvolvido com cuidado por <a href="http://smartlanding.com.br/" target="_blank" rel="noopener noreferrer">Smart Landing</a></p>
+              <p className="footer-credit">
+                Desenvolvido com cuidado por{" "}
+                <a
+                  href="http://smartlanding.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Smart Landing
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -717,7 +1116,7 @@ function App() {
         aria-label="Fale conosco no WhatsApp"
       >
         <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
         </svg>
       </a>
     </div>
