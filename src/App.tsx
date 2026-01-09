@@ -16,6 +16,7 @@ import antes1Img from "./assets/antes e depois/antes-1.PNG";
 import depois1Img from "./assets/antes e depois/depois-1.PNG";
 import antes2Img from "./assets/antes e depois/antes-2.PNG";
 import depois2Img from "./assets/antes e depois/depois-2.JPG";
+import antesteste from "./assets/antes e depois/teste4.png";
 
 function App() {
   const corporalCarouselRef = useRef<HTMLDivElement>(null);
@@ -663,7 +664,7 @@ function App() {
                 <div className="antes-depois-image-wrapper">
                   <div className="antes-depois-label antes">ANTES</div>
                   <img
-                    src={antes1Img}
+                    src={antesteste}
                     alt="Antes 1"
                     style={{
                       width: "100%",
