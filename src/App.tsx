@@ -12,7 +12,6 @@ import posImg from "./assets/servicos/pos.jpg";
 import resultado1Img from "./assets/resultados/resultado (1).JPG";
 import resultado5Img from "./assets/resultados/resultado (5).JPG";
 import resultadoImg from "./assets/resultados/resultado.JPG";
-import antes1Img from "./assets/antes e depois/antes-1.PNG";
 import depois1Img from "./assets/antes e depois/depois-1.PNG";
 import antes2Img from "./assets/antes e depois/antes-2.PNG";
 import depois2Img from "./assets/antes e depois/depois-2.JPG";
