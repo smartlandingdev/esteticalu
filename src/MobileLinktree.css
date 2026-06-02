@@ -584,6 +584,28 @@
   text-align: center;
 }
 
+.ml-smartlanding {
+  margin-top: 1rem;
+  font-size: 0.58rem;
+  color: #c0c8b8;
+  letter-spacing: 0.06em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ml-smartlanding a {
+  color: #859a5f;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.ml-smartlanding a:active {
+  opacity: 0.7;
+}
+
 /* ================================================================
    FAB WHATSAPP
 ================================================================ */

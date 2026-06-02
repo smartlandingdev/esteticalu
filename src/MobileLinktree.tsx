@@ -217,6 +217,18 @@ export default function MobileLinktree() {
       {/* ── FOOTER ── */}
       <p className="ml-footer">@esteticalugoncalves</p>
 
+      {/* ── SMARTLANDING ── */}
+      <div className="ml-smartlanding">
+        <span>Desenvolvido por</span>
+        <a
+          href="https://wa.me/5545998404893?text=Ol%C3%A1%2C%20gostaria%20de%20um%20site%20mobile%20igual%20a%20esse!"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SmartLanding
+        </a>
+      </div>
+
       {/* ── FAB WHATSAPP ── */}
       {showFloatingWpp && (
         <a
