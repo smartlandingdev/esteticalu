@@ -1,0 +1,622 @@
+/* ================================================================
+   MOBILE LINKTREE — mesma estética da landing page
+   Cores exatas do App.css:
+     títulos   : #5a6e42
+     texto     : #3a4a3a
+     verde-dark: #136267
+     olive     : #859a5f
+     amarelo   : #f6de81 / #f5de81
+     fundo     : #fdfbf9
+     fundo-alt : #f0f4e8
+================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ── ROOT ── */
+.ml-root {
+  min-height: 100dvh;
+  background: #fdfbf9;
+  font-family: 'Montserrat', -apple-system, sans-serif;
+  color: #3a4a3a;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3.5rem;
+}
+
+/* ================================================================
+   FOTO
+================================================================ */
+
+.ml-photo-wrap {
+  width: 100%;
+  position: relative;
+  height: 68dvh;
+  min-height: 380px;
+  overflow: hidden;
+  /* degradê atrás da foto: verde vivo → cor do fundo */
+  background: linear-gradient(
+    to bottom,
+    #e8f0d8 0%,
+    #d9e7c8 50%,
+    #eef4e4 80%,
+    #fdfbf9 100%
+  );
+  /* fade a foto para revelar o background abaixo */
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 96%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 96%);
+}
+
+.ml-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ── Vinhetas laterais — emolduram a foto com a cor do fundo ── */
+.ml-vignette {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ml-vignette--left {
+  top: 0; left: 0; bottom: 0;
+  width: 18%;
+  background: linear-gradient(to right, rgba(232,240,216,0.45), transparent);
+}
+
+.ml-vignette--right {
+  top: 0; right: 0; bottom: 0;
+  width: 18%;
+  background: linear-gradient(to left, rgba(232,240,216,0.45), transparent);
+}
+
+.ml-vignette--top {
+  top: 0; left: 0; right: 0;
+  height: 18%;
+  background: linear-gradient(to bottom, rgba(217,231,200,0.5), transparent);
+}
+
+/* ── Quatro pontos nos cantos ── */
+.ml-dot-tl, .ml-dot-tr, .ml-dot-bl, .ml-dot-br {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+  animation: dot-in 0.5s ease both;
+}
+
+.ml-dot-tl { top: 20px;  left: 20px;  background: rgba(246,222,129,0.7); animation-delay: 0.3s; }
+.ml-dot-tr { top: 20px;  right: 20px; background: rgba(133,154,95,0.6);  animation-delay: 0.4s; }
+.ml-dot-bl { bottom: 28%; left: 20px;  background: rgba(133,154,95,0.5);  animation-delay: 0.5s; }
+.ml-dot-br { bottom: 28%; right: 20px; background: rgba(246,222,129,0.6); animation-delay: 0.6s; }
+
+@keyframes dot-in {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Ornamento topo centro ── */
+.ml-hero-ornament {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  animation: fade-up 0.5s 0.3s ease both;
+}
+
+.ml-hero-orn-line {
+  width: 36px;
+  height: 1px;
+  background: rgba(133,154,95,0.5);
+}
+
+.ml-hero-orn-gem {
+  font-size: 0.55rem;
+  color: rgba(246,222,129,0.85);
+  line-height: 1;
+}
+
+
+/* ================================================================
+   IDENTIDADE
+================================================================ */
+
+.ml-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1.4rem 1.5rem 0;
+  text-align: center;
+  animation: fade-up 0.6s 0.2s ease both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* "Luciane Gonçalves" em Montserrat pequeno com traços — igual hero-name */
+.ml-pre-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #5a6e42;
+  position: relative;
+  padding: 0 28px;
+}
+
+.ml-pre-name::before,
+.ml-pre-name::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 1px;
+}
+.ml-pre-name::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(133,154,95,0.5), transparent);
+}
+.ml-pre-name::after {
+  right: 0;
+  background: linear-gradient(90deg, transparent, rgba(133,154,95,0.5));
+}
+
+/* Título principal — igual h1 da landing */
+.ml-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #5a6e42;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+  margin-top: 0.15rem;
+}
+
+/* Especialidade */
+.ml-specialty {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #859a5f;
+  margin-top: 0.25rem;
+}
+
+/* Localização */
+.ml-location {
+  font-size: 0.68rem;
+  color: #8a9a7a;
+  letter-spacing: 0.06em;
+  margin-top: 0.1rem;
+}
+
+/* ================================================================
+   DIVIDER
+================================================================ */
+
+.ml-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% - 3rem);
+  margin: 1.2rem 0 1rem;
+  animation: fade-up 0.5s 0.35s ease both;
+}
+
+.ml-divider span:not(.ml-divider-gem) {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(133,154,95,0.35), transparent);
+}
+
+.ml-divider-gem {
+  font-size: 0.65rem;
+  color: #859a5f;
+  opacity: 0.6;
+}
+
+/* ================================================================
+   TAGLINE
+================================================================ */
+
+.ml-tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #3a4a3a;
+  text-align: center;
+  line-height: 1.75;
+  padding: 0 2rem;
+  margin-bottom: 1.75rem;
+  animation: fade-up 0.5s 0.4s ease both;
+}
+
+/* ================================================================
+   BOTÕES — destacados, podem fugir da paleta
+================================================================ */
+
+.ml-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: calc(100% - 2.5rem);
+  margin-bottom: 1.5rem;
+  animation: fade-up 0.5s 0.5s ease both;
+}
+
+.ml-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.05rem 1.5rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* brilho interno em todos */
+.ml-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 45%;
+  background: rgba(255,255,255,0.12);
+  border-radius: 16px 16px 0 0;
+  pointer-events: none;
+}
+
+.ml-btn:active {
+  transform: scale(0.96) translateY(1px);
+}
+
+/* ── WhatsApp — verde pastel ── */
+.ml-btn--primary {
+  background: #8ecfaa;
+  color: #fff;
+  box-shadow:
+    0 6px 20px rgba(142, 207, 170, 0.45),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -2px 0 rgba(0,0,0,0.08);
+}
+
+/* ── Linha instagram + maps ── */
+.ml-btn-row {
+  display: flex;
+  gap: 0.7rem;
+}
+
+/* ── Instagram — rosa pastel ── */
+.ml-btn--instagram {
+  flex: 1;
+  background: #e0a0b8;
+  color: #fff;
+  box-shadow:
+    0 6px 20px rgba(224, 160, 184, 0.45),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -2px 0 rgba(0,0,0,0.08);
+}
+
+/* ── Maps — azul pastel ── */
+.ml-btn--maps {
+  flex: 1;
+  background: #92b8d8;
+  color: #fff;
+  box-shadow:
+    0 6px 20px rgba(146, 184, 216, 0.45),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -2px 0 rgba(0,0,0,0.08);
+}
+
+/* ================================================================
+   CARDS DE SEÇÃO — mesmo padrão das sections da landing
+================================================================ */
+
+.ml-section-card {
+  width: calc(100% - 2.5rem);
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(133, 154, 95, 0.15);
+  padding: 1.5rem 1.35rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 20px rgba(133, 154, 95, 0.07);
+  animation: fade-up 0.5s ease both;
+}
+
+/* Título de seção — mesma fonte dos h3 da landing */
+.ml-section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #5a6e42;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.65rem;
+}
+
+.ml-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 1px;
+  background: rgba(133, 154, 95, 0.4);
+}
+
+/* Texto de seção — igual p da landing */
+.ml-section-text {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: #3a4a3a;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+/* Pills */
+.ml-pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.ml-pill {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #136267;
+  background: #f0f4e8;
+  border: 1px solid rgba(133, 154, 95, 0.25);
+  border-radius: 30px;
+  padding: 5px 12px;
+}
+
+/* ================================================================
+   TRATAMENTOS
+================================================================ */
+
+.ml-treat-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ml-treat-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.1rem;
+  border-bottom: 1px solid #f0f4e8;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ml-treat-row:last-child {
+  border-bottom: none;
+}
+
+.ml-treat-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #859a5f;
+  flex-shrink: 0;
+}
+
+.ml-treat-name {
+  flex: 1;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: #3a4a3a;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+}
+
+.ml-treat-row:active .ml-treat-name {
+  color: #859a5f;
+}
+
+.ml-treat-arrow {
+  color: #b8c8a0;
+  flex-shrink: 0;
+}
+
+/* ================================================================
+   FACIAIS
+================================================================ */
+
+.ml-facial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.ml-facial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ml-facial-img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(133, 154, 95, 0.15);
+}
+
+.ml-facial-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.ml-facial-item:active .ml-facial-img {
+  transform: scale(1.04);
+}
+
+.ml-facial-name {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #4a5a4a;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* ================================================================
+   ANTES E DEPOIS
+================================================================ */
+
+.ml-ad-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ml-ad-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ml-ad-side {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(133, 154, 95, 0.12);
+}
+
+.ml-ad-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ml-ad-label {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.ml-ad-label--antes {
+  background: rgba(74, 74, 74, 0.7);
+  color: #fff;
+}
+
+.ml-ad-label--depois {
+  background: rgba(19, 98, 103, 0.82);
+  color: #fff;
+}
+
+.ml-ad-arrow {
+  font-size: 1rem;
+  color: #859a5f;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* ================================================================
+   HORÁRIO E FOOTER
+================================================================ */
+
+.ml-hours {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #859a5f;
+  letter-spacing: 0.1em;
+  margin: 0.75rem 0 0.5rem;
+  text-align: center;
+}
+
+.ml-footer {
+  font-size: 0.62rem;
+  color: #b8c8a0;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* ================================================================
+   FAB WHATSAPP
+================================================================ */
+
+.ml-fab {
+  position: fixed;
+  bottom: 22px;
+  right: 18px;
+  z-index: 100;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9bb070, #859a5f);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 6px 20px rgba(133, 154, 95, 0.4),
+    0 2px 8px rgba(133, 154, 95, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+  border: 1px solid rgba(245,222,129,0.3);
+  -webkit-tap-highlight-color: transparent;
+  animation: fab-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fab-pop {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.ml-fab:active {
+  transform: scale(0.93);
+  transition: transform 0.1s ease;
+}

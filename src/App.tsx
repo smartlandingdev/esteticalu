@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import MobileLinktree from "./MobileLinktree";
 import lucianeImg from "./assets/luciane 2.JPG";
 import limpezaProfundaImg from "./assets/servicos/limpeza facial profunda.jpg";
 import fotobiomoduladaImg from "./assets/servicos/fotobiomodulada.jpg";
@@ -18,6 +19,17 @@ import depois2Img from "./assets/antes e depois/depois-2.JPG";
 import antesteste from "./assets/antes e depois/teste4.png";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia("(max-width: 767px)").matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const corporalCarouselRef = useRef<HTMLDivElement>(null);
   const facialCarouselRef = useRef<HTMLDivElement>(null);
 
@@ -86,6 +98,8 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
+
+  if (isMobile) return <MobileLinktree />;
 
   return (
     <div className="app">
