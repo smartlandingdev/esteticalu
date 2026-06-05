@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/antigo.html", "destination": "/antigo.html" },
+    { "source": "/((?!antigo\\.html|antigo-imgs/.*).*)", "destination": "/index.html" }
+  ]
+}
