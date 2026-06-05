@@ -3,469 +3,516 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luciane Goncalves Esteticista Cascavel PR</title>
+  <title>Luciane Gonçalves | Esteticista</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: Verdana, Geneva, sans-serif;
-      font-size: 13px;
-      background: #e8d5f0;
-      color: #222;
-    }
-
-    /* TOPO */
-    .topo {
-      background: #6600aa;
-      padding: 16px 14px 12px;
-      border-bottom: 4px solid #440077;
-    }
-
-    .topo h1 {
-      font-family: 'Times New Roman', serif;
-      font-size: 22px;
-      color: #fff;
-      text-shadow: 2px 2px 0 #330055;
-      margin-bottom: 3px;
-    }
-
-    .topo p {
-      color: #ddaaff;
-      font-size: 11px;
-    }
-
-    .topo .tel {
-      color: #ffdd00;
-      font-size: 14px;
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    /* NAV */
-    nav {
-      background: #440077;
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #220044;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 8px 11px;
-      border-right: 1px solid #6600aa;
-      border-bottom: 1px solid #6600aa;
-    }
-
-    nav a:hover { background: #6600aa; color: #ffff00; }
-
-    /* BANNER */
-    .banner {
-      background: #fff0ff;
-      border-top: 3px solid #cc66ff;
-      border-bottom: 3px solid #cc66ff;
-      padding: 10px 14px;
-      text-align: center;
-      font-size: 12px;
-      color: #550077;
-    }
-
-    .banner strong { font-size: 15px; display: block; margin-bottom: 3px; }
-
-    /* SEÇÕES */
-    .secao {
-      background: #fff;
-      margin: 10px 8px;
-      border: 1px solid #cc99ee;
-      border-top: 3px solid #6600aa;
-    }
-
-    .secao-titulo {
-      background: #6600aa;
-      color: #fff;
-      font-size: 13px;
-      font-family: 'Times New Roman', serif;
-      padding: 7px 12px;
-      letter-spacing: 0.5px;
-    }
-
-    .secao-corpo {
-      padding: 12px;
-    }
-
-    .secao-corpo p {
-      font-size: 12px;
+      font-family: 'Poppins', sans-serif;
+      background: #f2ede3;
       color: #333;
-      line-height: 1.8;
-      margin-bottom: 8px;
     }
 
-    /* SOBRE */
-    .sobre-foto {
-      float: right;
-      margin: 0 0 10px 12px;
-      border: 3px solid #cc99ee;
-    }
-
-    .sobre-foto img {
-      width: 110px;
-      height: 140px;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-    }
-
-    .sobre-foto p {
-      font-size: 9px;
-      color: #999;
-      text-align: center;
-      padding: 3px 0;
-      margin: 0;
-    }
-
-    .clearfix::after { content: ''; display: table; clear: both; }
-
-    .box-info {
-      background: #f5e6ff;
-      border: 1px solid #cc99ee;
-      border-left: 4px solid #9900cc;
-      padding: 8px 10px;
-      margin: 8px 0;
-      font-size: 12px;
-      color: #440055;
-    }
-
-    /* SERVIÇOS */
-    .serv-item {
+    nav {
+      background: #8b7355;
+      padding: 18px 14px 18px 20px;
       display: flex;
-      border-bottom: 1px solid #eee;
-      gap: 0;
+      justify-content: space-between;
     }
 
-    .serv-item:last-child { border-bottom: none; }
-
-    .serv-item img {
-      width: 75px;
-      height: 75px;
-      object-fit: cover;
-      flex-shrink: 0;
-      border-right: 2px solid #cc99ee;
+    nav .logo {
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      align-self: flex-end;
     }
 
-    .serv-texto {
-      padding: 8px 10px;
-    }
-
-    .serv-texto h4 {
+    nav .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
       font-size: 12px;
-      color: #6600aa;
-      margin-bottom: 3px;
-    }
-
-    .serv-texto p {
-      font-size: 11px;
-      color: #666;
-      margin: 0;
-    }
-
-    /* GALERIA */
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-    }
-
-    .galeria img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
       display: block;
-      border: 2px solid #cc99ee;
+      line-height: 2.2;
     }
 
-    /* ANTES E DEPOIS */
-    .ad-par {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .ad-par:last-child { margin-bottom: 0; }
-
-    .ad-lado {
-      flex: 1;
+    .hero {
       position: relative;
+      height: 340px;
+      overflow: hidden;
     }
 
-    .ad-lado img {
+    .hero img {
       width: 100%;
-      aspect-ratio: 3/4;
+      height: 100%;
       object-fit: cover;
       object-position: top;
       display: block;
-      border: 2px solid #cc99ee;
     }
 
-    .ad-label {
+    .hero-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      text-align: center;
-      font-size: 9px;
-      font-weight: bold;
-      padding: 3px 0;
+      background: linear-gradient(transparent, rgba(45,32,34,0.85));
+      padding: 40px 20px 16px;
     }
 
-    .ad-label.antes { background: rgba(80,80,80,0.75); color: #fff; }
-    .ad-label.depois { background: rgba(102,0,170,0.8); color: #fff; }
-
-    .ad-seta {
-      color: #9900cc;
-      font-size: 22px;
-      font-weight: bold;
-      flex-shrink: 0;
+    .hero-overlay h1 {
+      font-size: 18px;
+      color: white;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 14px;
     }
 
-    /* DEPOIMENTOS */
-    .depo {
-      background: #f5e6ff;
-      border-left: 3px solid #9900cc;
-      padding: 8px 10px;
-      margin-bottom: 8px;
+    .hero-overlay a {
+      background: white;
+      color: #8b7355;
+      padding: 12px 16px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    /* SOBRE */
+    .sobre {
+      background: white;
+      padding: 40px 24px 16px;
+    }
+
+    .sobre h2 {
+      font-size: 32px;
+      color: #8b7355;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .sobre p {
       font-size: 11px;
-      font-style: italic;
-      color: #444;
-      line-height: 1.6;
+      color: #888;
+      line-height: 2;
     }
 
-    .depo:last-child { margin-bottom: 0; }
+    /* MISSÃO */
+    .missao {
+      background: #8b7355;
+      padding: 12px 24px 36px;
+    }
 
-    .depo span {
-      display: block;
-      font-style: normal;
-      font-weight: bold;
+    .missao h2 {
+      font-size: 14px;
+      color: white;
+      margin-bottom: 22px;
+      font-weight: 400;
+      padding-top: 18px;
+    }
+
+    .missao p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.9;
+    }
+
+    /* POR QUE NÓS */
+    .porquenos {
+      padding: 6px 10px 24px;
+      background: #f2ede3;
+    }
+
+    .porquenos h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #8b7355;
+      margin: 24px 0 6px 4px;
+    }
+
+    .porquenos ul {
+      list-style: none;
+      padding: 14px 0 0 0;
+    }
+
+    .porquenos ul li {
       font-size: 10px;
-      color: #6600aa;
-      margin-top: 5px;
+      color: #aaa;
+      padding: 12px 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .porquenos ul li::before {
+      content: "— ";
+      color: #8b7355;
+    }
+
+    /* SERVIÇOS */
+    .servicos {
+      padding: 8px 10px 24px;
+      background: white;
+    }
+
+    .servicos h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #8b7355;
+      margin: 24px 0 10px 4px;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+
+    .serv-card {
+      background: #f2ede3;
+      padding: 18px 8px 8px;
+      box-shadow: 0 16px 40px rgba(156,107,115,0.28);
+    }
+
+    .serv-card h4 {
+      font-size: 9px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .serv-card a {
+      display: block;
+      background: #8b7355;
+      color: white;
+      padding: 10px 4px;
+      font-size: 8px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
     }
 
     /* HORÁRIO */
+    .horario {
+      background: #f2ede3;
+      padding: 6px 10px 30px;
+    }
+
+    .horario h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #8b7355;
+      margin: 0 0 4px 4px;
+    }
+
     .horario-linha {
       display: flex;
       justify-content: space-between;
-      padding: 7px 0;
-      border-bottom: 1px solid #eee;
-      font-size: 12px;
+      padding: 9px 10px;
+      font-size: 11px;
+      color: #555;
+      border-bottom: 1px solid #e8e0d0;
     }
 
-    .horario-linha:last-child { border-bottom: none; }
-    .horario-linha b { color: #6600aa; }
+    .horario-linha span:last-child {
+      font-weight: 700;
+      color: #8b7355;
+      font-size: 10px;
+    }
+
+    /* RESULTADOS */
+    .resultados {
+      padding: 24px 24px 6px;
+      background: white;
+    }
+
+    .resultados h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #8b7355;
+      margin-bottom: 4px;
+    }
+
+    .resultados p {
+      font-size: 10px;
+      color: #ddd;
+    }
+
+    /* DEPOIMENTOS */
+    .depoimentos {
+      padding: 8px 10px 24px;
+      background: #f2ede3;
+    }
+
+    .depoimentos h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #8b7355;
+      margin: 24px 0 12px 4px;
+    }
+
+    .depo {
+      background: white;
+      padding: 16px 20px 16px 14px;
+      margin-bottom: 8px;
+      border-left: 4px solid #8b7355;
+    }
+
+    .depo p {
+      font-size: 10px;
+      color: #777;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .depo .nome {
+      font-style: normal;
+      font-weight: 700;
+      color: #8b7355;
+      font-size: 9px;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: white;
+      padding: 36px 24px 16px;
+      border-top: 1px solid #e8e0d0;
+    }
+
+    .newsletter h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #8b7355;
+      margin-bottom: 4px;
+    }
+
+    .newsletter p {
+      font-size: 9px;
+      color: #bbb;
+      margin-bottom: 14px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      margin-bottom: 6px;
+      outline: none;
+    }
+
+    .newsletter button {
+      width: 40%;
+      padding: 11px;
+      background: #8b7355;
+      color: white;
+      border: none;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+    }
+
+    /* REDES */
+    .redes {
+      background: #f2ede3;
+      padding: 6px 24px 30px;
+    }
+
+    .redes h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #8b7355;
+      margin: 24px 0 4px;
+    }
+
+    .redes p {
+      font-size: 10px;
+      color: #bbb;
+      margin-bottom: 10px;
+    }
+
+    .redes a {
+      display: inline-block;
+      font-size: 11px;
+      color: #8b7355;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #8b7355;
+      padding: 8px 18px;
+      margin-right: 6px;
+    }
 
     /* CONTATO */
+    .contato {
+      padding: 16px 10px 40px;
+      background: #8b7355;
+    }
+
+    .contato h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin: 0 4px 24px;
+    }
+
     .contato-info {
-      font-size: 12px;
-      line-height: 2.1;
-      color: #333;
+      background: white;
+      padding: 20px 14px;
     }
 
-    .contato-info a { color: #6600aa; }
-
-    /* BOTÃO WPP */
-    .btn-wpp {
-      display: block;
-      background: #25d366;
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 13px;
-      text-decoration: none;
-      margin: 8px;
-      border: 2px solid #1da851;
-      font-family: Verdana, sans-serif;
+    .contato-info p {
+      font-size: 11px;
+      color: #555;
+      padding: 8px 0;
+      border-bottom: 1px solid #ede5d5;
     }
 
-    /* FOOTER */
+    .contato-info p:last-child { border-bottom: none; }
+
     footer {
-      background: #440077;
-      color: #ccaaee;
-      text-align: center;
-      padding: 14px;
-      font-size: 10px;
-      line-height: 2;
-      border-top: 3px solid #220044;
+      background: #2a2416;
+      color: #666;
+      padding: 20px 24px;
+      font-size: 9px;
+      line-height: 2.2;
     }
 
-    footer a { color: #ddbbff; }
+    footer a { color: #8b7355; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <div class="topo">
-    <h1>Luciane Goncalves</h1>
-    <p>Esteticista Profissional - Cascavel PR</p>
-    <p class="tel">&#128222; (45) 99914-9281</p>
-  </div>
-
   <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Sobre</a>
-    <a href="#">Servicos</a>
-    <a href="#">Resultados</a>
-    <a href="#">Contato</a>
+    <div class="logo">Luciane Estética</div>
+    <div class="nav-links">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Serviços</a>
+      <a href="#">Contato</a>
+    </div>
   </nav>
 
-  <div class="banner">
-    <strong>&#10022; Bem-vinda ao meu site! &#10022;</strong>
-    Especialista em Metodo Esculpe Detox - Resultados desde a 1&ordf; sessao!
+  <div class="hero">
+    <img src="/antigo-imgs/luciane 2.JPG" alt="Luciane Gonçalves">
+    <div class="hero-overlay">
+      <h1>Estética e Bem Estar em Cascavel</h1>
+      <a href="https://wa.me/5545999149281">Agendar Consulta</a>
+    </div>
   </div>
 
-  <!-- SOBRE -->
-  <div class="secao">
-    <div class="secao-titulo">Sobre mim</div>
-    <div class="secao-corpo clearfix">
-      <div class="sobre-foto">
-        <img src="/antigo-imgs/luciane 2.JPG" alt="Luciane">
-        <p>Luciane Goncalves</p>
+  <div class="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Olá! Sou a Luciane Gonçalves, esteticista em Cascavel PR especializada no Método Esculpe Detox. Tenho mais de 10 anos de experiência e amo o que faço. Meu objetivo é fazer você se sentir melhor!</p>
+  </div>
+
+  <div class="missao">
+    <h2>Nossa Missão</h2>
+    <p>Oferecer tratamentos estéticos de alta qualidade com foco no bem-estar e na autoestima de cada cliente, utilizando técnicas modernas e personalizadas para resultados reais e duradouros.</p>
+  </div>
+
+  <div class="porquenos">
+    <h2>Por que nos escolher?</h2>
+    <ul>
+      <li>Mais de 10 anos de experiência no mercado</li>
+      <li>Atendimento personalizado para cada cliente</li>
+      <li>Técnicas modernas e atualizadas</li>
+      <li>Resultados comprovados</li>
+      <li>Ambiente confortável e climatizado</li>
+      <li>Profissional certificada</li>
+    </ul>
+  </div>
+
+  <div class="servicos">
+    <h2>Serviços</h2>
+    <div class="servicos-grid">
+      <div class="serv-card">
+        <h4>Massagem Esculpe Detox</h4>
+        <a href="https://wa.me/5545999149281">Agendar</a>
       </div>
-      <div class="box-info">
-        &#10003; Sem aparelhos &nbsp; &#10003; Sem cremes &nbsp; &#10003; Sem dor
+      <div class="serv-card">
+        <h4>Esculpe Week</h4>
+        <a href="https://wa.me/5545999149281">Agendar</a>
       </div>
-      <p>Sou Luciane Goncalves, esteticista especializada em Metodo Esculpe Detox e estetica funcional. Atendo em Cascavel-PR com hora marcada, de segunda a sabado.</p>
-      <p>Meu trabalho e voltado para o equilibrio natural do corpo, com tratamentos que atuam de dentro para fora.</p>
-    </div>
-  </div>
-
-  <!-- SERVIÇOS -->
-  <div class="secao">
-    <div class="secao-titulo">Servicos</div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/massagem funcional.jpg" alt="">
-      <div class="serv-texto"><h4>Massagem Esculpe Detox</h4><p>Resultado desde a primeira sessao</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/esculpe week.jpg" alt="">
-      <div class="serv-texto"><h4>Esculpe Week</h4><p>Programa intensivo desintoxicante</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/esculpe 21.jpg" alt="">
-      <div class="serv-texto"><h4>Esculpe 21</h4><p>Ciclo de 21 dias de resultados</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/drenagem linfatica.jpg" alt="">
-      <div class="serv-texto"><h4>Drenagem Linfatica</h4><p>Reduz inchacos e ativa a circulacao</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/pos.jpg" alt="">
-      <div class="serv-texto"><h4>Pos-Operatorio</h4><p>Recuperacao e reducao de edemas</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/limpeza facial profunda.jpg" alt="">
-      <div class="serv-texto"><h4>Limpeza de Pele Profunda</h4><p>Remocao de impurezas e renovacao</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/fotobiomodulada.jpg" alt="">
-      <div class="serv-texto"><h4>Limpeza Fotobiomodulada</h4><p>Tecnologia de luz para renovacao celular</p></div>
-    </div>
-    <div class="serv-item">
-      <img src="/antigo-imgs/servicos/massagem  facial.jpg" alt="">
-      <div class="serv-texto"><h4>Spa Facial</h4><p>Relaxamento e rejuvenescimento facial</p></div>
-    </div>
-  </div>
-
-  <!-- RESULTADOS -->
-  <div class="secao">
-    <div class="secao-titulo">Resultados</div>
-    <div class="secao-corpo">
-      <p style="font-size:11px; color:#888; margin-bottom:8px;">Fotos reais de clientes. Resultados podem variar.</p>
-      <div class="galeria">
-        <img src="/antigo-imgs/resultados/resultado (1).JPG" alt="">
-        <img src="/antigo-imgs/resultados/resultado (2).JPG" alt="">
-        <img src="/antigo-imgs/resultados/resultado (3).JPG" alt="">
-        <img src="/antigo-imgs/resultados/resultado (4).JPG" alt="">
-        <img src="/antigo-imgs/resultados/resultado (5).JPG" alt="">
-        <img src="/antigo-imgs/resultados/resultado.JPG" alt="">
-        <img src="/antigo-imgs/resultados/resultado (8).jpg" alt="">
-        <img src="/antigo-imgs/resultados/resultado (9).jpg" alt="">
-        <img src="/antigo-imgs/resultados/resultado (10).jpg" alt="">
+      <div class="serv-card">
+        <h4>Esculpe 21</h4>
+        <a href="https://wa.me/5545999149281">Agendar</a>
+      </div>
+      <div class="serv-card">
+        <h4>Drenagem Linfática</h4>
+        <a href="https://wa.me/5545999149281">Agendar</a>
+      </div>
+      <div class="serv-card">
+        <h4>Limpeza de Pele Profunda</h4>
+        <a href="https://wa.me/5545999149281">Agendar</a>
+      </div>
+      <div class="serv-card">
+        <h4>Spa Facial</h4>
+        <a href="https://wa.me/5545999149281">Agendar</a>
       </div>
     </div>
   </div>
 
-  <!-- ANTES E DEPOIS -->
-  <div class="secao">
-    <div class="secao-titulo">Antes e Depois</div>
-    <div class="secao-corpo">
-      <div class="ad-par">
-        <div class="ad-lado">
-          <img src="/antigo-imgs/antes-depois/antes 1.jpg" alt="Antes">
-          <div class="ad-label antes">ANTES</div>
-        </div>
-        <div class="ad-seta">&raquo;</div>
-        <div class="ad-lado">
-          <img src="/antigo-imgs/antes-depois/depois 1.jpg" alt="Depois">
-          <div class="ad-label depois">DEPOIS</div>
-        </div>
-      </div>
-      <div class="ad-par">
-        <div class="ad-lado">
-          <img src="/antigo-imgs/antes-depois/antes-2.PNG" alt="Antes">
-          <div class="ad-label antes">ANTES</div>
-        </div>
-        <div class="ad-seta">&raquo;</div>
-        <div class="ad-lado">
-          <img src="/antigo-imgs/antes-depois/depois-2.JPG" alt="Depois">
-          <div class="ad-label depois">DEPOIS</div>
-        </div>
-      </div>
+  <div class="horario">
+    <h2>Horários</h2>
+    <div class="horario-linha"><span>Segunda-feira</span><span>09h — 18h</span></div>
+    <div class="horario-linha"><span>Terça-feira</span><span>09h — 18h</span></div>
+    <div class="horario-linha"><span>Quarta-feira</span><span>09h — 18h</span></div>
+    <div class="horario-linha"><span>Quinta-feira</span><span>09h — 18h</span></div>
+    <div class="horario-linha"><span>Sexta-feira</span><span>09h — 18h</span></div>
+    <div class="horario-linha"><span>Sábado</span><span>09h — 18h</span></div>
+    <div class="horario-linha"><span>Domingo</span><span>Fechado</span></div>
+  </div>
+
+  <div class="resultados">
+    <h2>Resultados</h2>
+    <p>em breve...</p>
+  </div>
+
+  <div class="depoimentos">
+    <h2>Depoimentos</h2>
+    <div class="depo">
+      <p>"Resultado incrível desde a primeira sessão! Recomendo muito a Luciane!"</p>
+      <span class="nome">Ana Paula M.</span>
+    </div>
+    <div class="depo">
+      <p>"Sempre saio me sentindo outra pessoa. Melhor investimento que já fiz!"</p>
+      <span class="nome">Fernanda R.</span>
+    </div>
+    <div class="depo">
+      <p>"Profissional muito atenciosa. Os resultados são reais e visíveis!"</p>
+      <span class="nome">Camila S.</span>
     </div>
   </div>
 
-  <!-- DEPOIMENTOS -->
-  <div class="secao">
-    <div class="secao-titulo">Depoimentos</div>
-    <div class="secao-corpo">
-      <div class="depo">"Resultado incrivel desde a primeira sessao!! Recomendo muito a Luciane, ela e maravilhosa!!"<span>- Ana Paula M., Cascavel/PR</span></div>
-      <div class="depo">"Sempre saio me sentindo outra pessoa. Melhor investimento que ja fiz!"<span>- Fernanda R., Cascavel/PR</span></div>
-      <div class="depo">"Profissional muito atenciosa e os resultados sao reais e visiveis!"<span>- Camila S., Cascavel/PR</span></div>
-    </div>
+  <div class="newsletter">
+    <h2>Fique por dentro</h2>
+    <p>Receba novidades e promoções no seu email</p>
+    <input type="email" placeholder="seu@email.com" />
+    <button type="button">Inscrever</button>
   </div>
 
-  <!-- HORÁRIO -->
-  <div class="secao">
-    <div class="secao-titulo">Horario de Atendimento</div>
-    <div class="secao-corpo">
-      <div class="horario-linha"><span>Segunda a Sexta</span><b>09h as 18h</b></div>
-      <div class="horario-linha"><span>Sabado</span><b>09h as 18h</b></div>
-      <div class="horario-linha"><span>Domingo</span><b>Fechado</b></div>
-      <p style="font-size:10px; color:#999; margin-top:8px;">* Somente com hora marcada.</p>
-    </div>
+  <div class="redes">
+    <h2>Redes Sociais</h2>
+    <p>Nos siga nas redes sociais para acompanhar novidades</p>
+    <a href="#">Instagram</a>
+    <a href="#">WhatsApp</a>
   </div>
 
-  <!-- CONTATO -->
-  <div class="secao">
-    <div class="secao-titulo">Contato e Endereco</div>
-    <div class="secao-corpo">
-      <div class="contato-info">
-        &#128222; <a href="tel:+5545999149281">(45) 99914-9281</a><br>
-        &#128247; <a href="#">@esteticalugoncalves</a><br>
-        &#128205; Rua Nereu Ramos, 1889 - Sala 06<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Centro - Cascavel / PR
-      </div>
+  <div class="contato">
+    <h2>Contato</h2>
+    <div class="contato-info">
+      <p>(45) 99914-9281</p>
+      <p>Rua Nereu Ramos, 1889 - Sala 06 - Centro - Cascavel PR</p>
+      <p>Seg a Sab das 09h às 18h</p>
+      <p>@esteticalugoncalves</p>
     </div>
   </div>
-
-  <a class="btn-wpp" href="https://wa.me/5545999149281">&#128172; Fale pelo WhatsApp</a>
 
   <footer>
-    &copy; 2019 Luciane Goncalves Esteticista - Cascavel PR<br>
-    <a href="#">@esteticalugoncalves</a> &bull; (45) 99914-9281<br>
-    <span style="font-size:9px; opacity:0.6;">Desenvolvido por FerCriacoes Web - Cascavel PR</span>
+    © 2024 Luciane Gonçalves Estética — Cascavel PR<br>
+    <a href="#">@esteticalugoncalves</a>
   </footer>
 
 </body>
